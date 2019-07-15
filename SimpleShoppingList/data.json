@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Groceries",
+        "date" : "2019-06-30",
+        "items": [
+            {
+                "name" : "eggs",
+                "quantity" : 6
+            },
+            {
+                "name" : "bread",
+                "quantity" : 1
+            },
+            {
+                "name" : "butter",
+                "quantity" : 2
+            }
+        ]
+    },
+    {
+        "name" : "Empty",
+        "date" : "2019-06-21",
+        "items": [
+            
+        ]
+    }
+]
