@@ -17,11 +17,11 @@ class ShoppingCart: Identifiable, Codable, BindableObject {
     }
     
     var id = UUID()
-    var didChange = PassthroughSubject<Void, Never>()
+    var willChange = PassthroughSubject<Void, Never>()
     
     var name: String
     var date: Date
-    var items = [Item]() { didSet { didChange.send() } }
+    var items = [Item]() { willSet { willChange.send() } }
     var numberOfItems: Int {
         return items.count
     }

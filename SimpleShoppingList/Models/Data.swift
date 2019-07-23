@@ -10,9 +10,9 @@ import Combine
 import SwiftUI
 
 class DataStore: BindableObject {
-    var didChange = PassthroughSubject<Void, Never>()
+    var willChange = PassthroughSubject<Void, Never>()
     
-    var carts = [ShoppingCart]() { didSet { didChange.send() } }
+    var carts = [ShoppingCart]() { willSet { willChange.send() } }
     
     init() {
         self.carts = load("data.json")

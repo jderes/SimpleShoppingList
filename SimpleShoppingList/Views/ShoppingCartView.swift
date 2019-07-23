@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ShoppingCartView : View {
     @ObjectBinding var cart: ShoppingCart
+    @State var isFormPresented = false
     
     var body: some View {
         List() {
@@ -19,11 +20,12 @@ struct ShoppingCartView : View {
             }
             .navigationBarTitle(Text(cart.name))
             .navigationBarItems(trailing:
-                PresentationLink(destination: AddItemView(didAdd: didAdd(item:)), label: {
-                    Image(systemName: "plus.circle")
-                        .font(.title)
-                })
-        )
+                Image(systemName: "plus.circle")
+                    .sheet(isPresented: $isFormPresented, content: {
+                        AddItemView(didAdd: self.didAdd(item:))
+                    })
+                    .font(.title)
+            )
     }
     
     func didAdd(item: Item) {
